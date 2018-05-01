@@ -1,0 +1,13 @@
+[general]
+email = user@example.com
+authserver = http://somewhere:8080/
+
+[index.example.com]
+index = true
+
+[somesite.example.com]
+destination = http://10.0.0.1:5000/
+
+[tricky.example.com]
+destination = https://server.local:8443/
+options = proxy_set_header Host $host;
