@@ -11,3 +11,9 @@ destination = http://10.0.0.1:5000/
 [tricky.example.com]
 destination = https://server.local:8443/
 options = proxy_set_header Host $host;
+serveroptions = client_max_body_size 50m;
+noauthip = 10.0.0.0/8 192.168.0.0/24
+
+[noauth.example.com]
+destination = http://192.168.1.1:8888/
+altconftemplate = domains-noauth.conf

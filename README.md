@@ -20,7 +20,9 @@ Then update your `servers.ini` file, note the following:
  - All other sections are the domain name of the web site, this is what will be used by certbot to get an SSL certificate, this MUST be accessible on both port 80 and 443 to work.
  - All sections must have a `destination` set, or the first domain section may have `index = true`, this will not forward internally, rather it will give a simple index to all of the sites that are configured (a simple landing page).
  - `destination` must be a URL that is accessible by the docker container (either HTTP or HTTPS), and this is where all traffic will be forwarded that hits the HTTPS web site for the domain, once the user is authenticated.
- - An optional `options` section maybe included, and this will be added to the relevant section for the nginx config for the site.
+ - An optional `options` section maybe included, and this will be added to the relevant *location* section for the nginx config for the site.
+ - An optional `serveroptions` section maybe included, and this will be added to the relevant *server* section for the nginx config for the site.
+ - An optional `noauthip` section will allow specified IP ranges to be excluded from auth for that host. Multiple values are space separated.
 
 Look at the `servers.ini.example` for an example of how this ini file should look.
 
