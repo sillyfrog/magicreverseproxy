@@ -13,4 +13,5 @@ COPY conftemplates/ /conftemplates
 
 RUN chmod +x start.py
 
+ENV  PYTHONUNBUFFERED=1
 CMD ["/start.py"]

@@ -1,6 +1,6 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
-import ConfigParser
+import configparser
 import collections
 import subprocess
 import sys
@@ -25,7 +25,7 @@ CMD = [
 
 
 def getconfigs():
-    config = ConfigParser.ConfigParser()
+    config = configparser.ConfigParser()
     config.read("/etc/servers.ini")
 
     general = {}
@@ -72,7 +72,7 @@ def applytemplate(templatename, destfn, values):
 
 def main():
     general, configs = getconfigs()
-    domains = configs.keys()
+    domains = list(configs.keys())
 
     # Check and generate all certs
     doms = ",".join(domains)
@@ -91,7 +91,7 @@ def main():
     }
 
     # Check if the first entry is an index listing
-    firstdom, firstconfig = configs.items()[0]
+    firstdom, firstconfig = list(configs.items())[0]
     if firstconfig.get("index", "false").lower() == "true":
         configs.pop(firstdom)  # Remove this config item as it's not a proxy
         htmlblock = ""
@@ -110,7 +110,7 @@ def main():
 
     # Generate the template for the domanis
     i = 1
-    for domain, config in configs.iteritems():
+    for domain, config in configs.items():
         values["domain"] = domain
         values["proxydest"] = config["destination"]
         values["options"] = config.get("options", "")
