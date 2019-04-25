@@ -4,7 +4,7 @@ An nginx docker container with automatic letsencrypt certificate generation and 
 
 *Note:* your docker container *must* be accessible on port 80 and port 443 for this to work.
 
-*Note:* an authentication server is required, see my [magicauthserver](https://github.com/sillyfrog/magicauthserver/) for an example.
+*Note:* an authentication server is required, see my [magicauthserver3](https://github.com/sillyfrog/magicauthserver3/) for an example.
 
 ## Build Docker Image
 
