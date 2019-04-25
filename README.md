@@ -4,7 +4,7 @@ An nginx docker container with automatic letsencrypt certificate generation and 
 
 *Note:* your docker container *must* be accessible on port 80 and port 443 for this to work.
 
-*Note:* an authentication server is required, see my [magicauthserver](https://github.com/sillyfrog/magicauthserver/) for an example.
+*Note:* an authentication server is required, see my [magicauthserver3](https://github.com/sillyfrog/magicauthserver3/) for an example.
 
 ## Build Docker Image
 
@@ -16,7 +16,7 @@ To run, firstly build the docker image:
 Then update your `servers.ini` file, note the following:
  - The `general` section is required, and must have an `email` and `authserver` set
  - `email` is a contact email address for you that's used by certbot on the certificates
- - `autheserver` is a web service that provides authentication services for the nginx reverse proxy. See my [magicauthserver](https://github.com/sillyfrog/magicauthserver/) for a simple sample implementation.
+ - `autheserver` is a web service that provides authentication services for the nginx reverse proxy. See my [magicauthserver3](https://github.com/sillyfrog/magicauthserve3r/) for a simple sample implementation.
  - All other sections are the domain name of the web site, this is what will be used by certbot to get an SSL certificate, this MUST be accessible on both port 80 and 443 to work.
  - All sections must have a `destination` set, or the first domain section may have `index = true`, this will not forward internally, rather it will give a simple index to all of the sites that are configured (a simple landing page).
  - `destination` must be a URL that is accessible by the docker container (either HTTP or HTTPS), and this is where all traffic will be forwarded that hits the HTTPS web site for the domain, once the user is authenticated.
